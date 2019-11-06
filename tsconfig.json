@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "allowJs": false,
+    "noImplicitAny": true,
+    "noImplicitThis":true,
+    "noImplicitReturns":true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowUnusedLabels": false,
+    "strictNullChecks":true,
+    "strictFunctionTypes": true,
+    "allowUnreachableCode": false,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "module": "ES6",
+    "target": "es6",
+    "outDir": "build",
+    "baseUrl": "."
+  },
+  "include": [
+    "./src/**/*.ts"
+  ]
+}

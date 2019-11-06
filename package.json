@@ -1,0 +1,29 @@
+{
+  "name": "typerl",
+  "version": "0.0.1",
+  "description": "Typescript rogue-like",
+  "scripts": {
+    "tsc": "./node_modules/.bin/tsc",
+    "rollup": "./node_modules/.bin/rollup --config rollup.config.js",
+    "build": "npm run tsc && npm run rollup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Marneus68/typerl.git"
+  },
+  "keywords": [
+    "roguelike"
+  ],
+  "bugs": {
+    "url": "https://github.com/Marneus68/typerl/issues"
+  },
+  "homepage": "https://github.com/Marneus68",
+  "author": "Marneus68",
+  "license": "WTFPL",
+  "dependencies": {},
+  "devDependencies": {
+    "rollup": "^1.26.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "typescript": "^3.7.2"
+  }
+}
