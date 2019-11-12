@@ -1,35 +1,42 @@
-import { Id } from './Id';
+import { InstanceId } from './InstanceId';
 import { UserInput } from './UserInput';
+import { AGenerable } from './AGenerable';
 
-export class AEntity {
+export class AEntity extends AGenerable {
 
-  protected id: number;
+  protected instanceId: number;
+  protected staticId: number;
   protected name: string = "";
   protected parent: AEntity;
 
-  get Id(): number {
-    return this.id;
+  public get InstanceId(): number {
+    return this.instanceId;
   }
 
-  get Name(): string {
+  public get StaticId(): number {
+    return this.staticId;
+  }
+
+  public get Name(): string {
     return this.name;
   }
 
-  get Parent(): AEntity {
+  public get Parent(): AEntity {
     return this.parent;
   }
 
   protected children: AEntity[] = [];
 
   constructor(name:string = "") {
+    super();
     this.name = name;
-    this.id = Id.GetNew();
+    this.instanceId = InstanceId.GetNew();
   }
 
   public AddChild(e: AEntity): void {
     e.parent = this;
     this.children.forEach(et => {
-      if (et.Id === e.Id)
+      if (et.InstanceId === e.InstanceId)
         return;
     });
     this.children.push(e);
