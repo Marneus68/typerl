@@ -2,6 +2,7 @@ import { ICommand } from './ICommand';
 
 export class InputHandler {
 
+  public NCommand: ICommand|null = null;
   public HCommand: ICommand|null = null;
   public JCommand: ICommand|null = null;
   public KCommand: ICommand|null = null;
@@ -17,6 +18,9 @@ export class InputHandler {
 
   protected onPress(event: KeyboardEvent) {
       switch (event.code) {
+        case "KeyN":
+          this.NCommand?.Invoke();
+          break;
         case "KeyH":
           this.HCommand?.Invoke();
           break;
@@ -54,6 +58,10 @@ export class InputHandler {
           this.EscapeCommand?.Invoke();
           break;
       }
+  }
+
+  public ClearAllCommands() {
+    this.NCommand = null;
   }
 
   constructor() {

@@ -1,8 +1,21 @@
 import { InputHandler } from './core/InputHandler';
-import { StepCommand } from './core/commands/StepCommand';
-import { Overworld } from './core/entities/Overworld';
-import { Dungeon } from './core/entities/Dungeon';
-import { Character } from './core/entities/Character';
+//import { StepCommand } from './core/commands/StepCommand';
+//import { Overworld } from './core/entities/Overworld';
+//import { Dungeon } from './core/entities/Dungeon';
+//import { Character } from './core/entities/Character';
+import { GameState } from './core/GameState';
+import { IContext } from './core/IContext';
+
+function goToMenu(context:IContext): void {
+  console.log("Main Menu: Press N to start a new game...")
+  if (context.InputHandler !== undefined && context.InputHandler !== null) {
+    context.InputHandler.NCommand = {
+      Invoke () {
+        GameState.INSTANCE.Start(context);
+      }
+    };
+  }
+}
 
 function main(): void {
   //const world: Overworld = new Overworld("Land of the free");
@@ -24,7 +37,12 @@ function main(): void {
   //world.AddChild(dungeon2);
 
   const ih = new InputHandler();
-  ih.SpaceCommand = new StepCommand(world);
+  goToMenu({InputHandler:ih});
+  GameState.INSTANCE.OnStopped = {
+    Invoke(context:IContext) {
+      goToMenu(context);
+    }
+  };
 }
 
 main();
