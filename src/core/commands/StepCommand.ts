@@ -1,10 +1,10 @@
 import { ICommand } from '../ICommand';
-import { AEntity } from '../AEntity';
+import { Entity } from '../Entity';
 import { UserInput } from '../UserInput';
 export class StepCommand implements ICommand {
 
-  protected entity: AEntity;
-  public constructor(entity: AEntity) {
+  protected entity: Entity;
+  public constructor(entity: Entity) {
     this.entity = entity;
   }
   public Invoke(): void {

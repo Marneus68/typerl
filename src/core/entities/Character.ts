@@ -1,11 +1,11 @@
-import { AEntity } from '../AEntity';
+import { Entity } from '../Entity';
 import { vector2 } from '../../utils/vector2';
 import { Direction } from '../Direction';
 import { Level } from './Level';
 import { Cause } from '../Cause';
 import { UserInput } from '../UserInput';
 
-export class Character extends AEntity {
+export class Character extends Entity {
 
   protected position: vector2 = new vector2();
   public get Position(): vector2 { return this.position; }

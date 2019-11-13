@@ -1,5 +1,5 @@
-import { Context } from "./Context";
 import { GameEvent } from "./GameEvent";
+import { Context } from './Context';
 
 export class Game {
   protected started: boolean = false;
@@ -8,22 +8,9 @@ export class Game {
     return this.started;
   }
 
-  public Start(context: Context): void {
+  public Start(context:Context): void {
     if (!this.started) {
-      context.GameInstance = this;
       this.OnStart?.Invoke(context);
-      if (context.InputHandler !== undefined && context.InputHandler !== null) {
-        context.InputHandler.EscapeCommand = {
-          Invoke() {
-            if (
-              context.GameInstance !== undefined &&
-              context.GameInstance !== null
-            ) {
-              context.GameInstance.Stop(context);
-            }
-          }
-        };
-      }
       console.log("Game Started.");
     }
   }

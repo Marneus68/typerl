@@ -1,6 +1,4 @@
-import { Id } from "./Id";
-
-export class InstanceId implements Id {
+export class InstanceId {
 
   protected static current: number = 0;
 

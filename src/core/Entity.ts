@@ -2,12 +2,12 @@ import { InstanceId } from './InstanceId';
 import { UserInput } from './UserInput';
 import { AGenerable } from './AGenerable';
 
-export class AEntity extends AGenerable {
+export class Entity extends AGenerable {
 
   protected instanceId: number;
   protected staticId: number;
   protected name: string = "";
-  protected parent: AEntity;
+  protected parent: Entity;
 
   public get InstanceId(): number {
     return this.instanceId;
@@ -21,11 +21,11 @@ export class AEntity extends AGenerable {
     return this.name;
   }
 
-  public get Parent(): AEntity {
+  public get Parent(): Entity {
     return this.parent;
   }
 
-  protected children: AEntity[] = [];
+  protected children: Entity[] = [];
 
   constructor(name:string = "") {
     super();
@@ -33,7 +33,7 @@ export class AEntity extends AGenerable {
     this.instanceId = InstanceId.GetNew();
   }
 
-  public AddChild(e: AEntity): void {
+  public AddChild(e: Entity): void {
     e.parent = this;
     this.children.forEach(et => {
       if (et.InstanceId === e.InstanceId)
@@ -42,7 +42,7 @@ export class AEntity extends AGenerable {
     this.children.push(e);
   }
 
-  public RemoveChild(e: AEntity): void {
+  public RemoveChild(e: Entity): void {
     //e.parent = undefined;
     var i = this.children.indexOf(e, 0);
     if (i > -1) this.children.splice(i, 1);
