@@ -1,7 +1,8 @@
 import { Id } from './Id';
 import { UserInput } from './UserInput';
+import { UserData } from './UserData';
 
-export class AEntity {
+export class AEntity extends UserData {
 
   protected id: number;
   protected name: string = "";
@@ -22,6 +23,7 @@ export class AEntity {
   protected children: AEntity[] = [];
 
   constructor(name:string = "") {
+    super();
     this.name = name;
     this.id = Id.GetNew();
   }
