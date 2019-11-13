@@ -1,6 +1,6 @@
 import { AppState } from '../AppState';
 
-export class InitialAppState implements AppState {
+export class InitAppState extends AppState {
   Enter(): void {
     throw new Error("Method not implemented.");
   }

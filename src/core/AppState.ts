@@ -1,7 +1,22 @@
+import { App } from './App';
 
-export interface AppState {
+export class AppState {
 
-  Enter():void
-  Leave():void
-  Update():void
+  protected app:App;
+
+  constructor(app:App) {
+    this.app = app;
+  }
+
+  public Enter():void {
+
+  }
+
+  public Leave():void {
+    
+  }
+
+  public Update():void {
+
+  }
 }
