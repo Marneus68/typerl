@@ -1,4 +1,5 @@
-export abstract class AGenerable {
+import { UserData } from './UserData';
+export abstract class AGenerable extends UserData {
 
   protected generated: boolean;
 

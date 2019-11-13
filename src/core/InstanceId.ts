@@ -4,7 +4,7 @@ export class InstanceId implements Id {
 
   protected static current: number = 0;
 
-  public GetNew(): number {
+  public static GetNew(): number {
     return InstanceId.current++;
   }
 
